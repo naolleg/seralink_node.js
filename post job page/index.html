@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>post a job</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="post-ajob">
+      <div class="container">
+        <div class="postcolor">
+          <h2>post a job</h2>
+        </div>
+        <form action="">
+          <input type="text" name="jobtitle" placeholder="Job title" /><br />
+          <input
+            type="text"
+            name="hirecompany"
+            placeholder="Hirer company/individual name"
+          /><br />
+          <input
+            type="text"
+            name="emailaddress"
+            placeholder="Email Address"
+          /><br />
+          <input
+            type="text"
+            name="quantityneeded"
+            placeholder="Quantity Needed"
+          /><br />
+          <input
+            type="text"
+            name="appliciantexperiance"
+            placeholder="Applicant's experience"
+          /><br />
+          <input type="text" name="postdate" placeholder="Post date" /><br />
+          <input type="text" name="deadline" placeholder="Deadline" /><br />
+          <input
+            type="text"
+            name="address"
+            placeholder="Address (e.g., city, country)"
+          /><br />
+          <input
+            type="text"
+            name="jobcategory"
+            placeholder="Job category"
+            list="jobcategories"
+          /><br />
+          <datalist id="jobcategories">
+            <option value="Civil"></option>
+            <option value="Software"></option>
+            <option value="Computer Science"></option>
+          </datalist>
+          <br />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>

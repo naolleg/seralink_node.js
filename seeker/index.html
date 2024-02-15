@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Componet</title>
+    <style>
+
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Libre+Baskerville:wght@400;700&display=swap");
+* {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+    margin-top: 160pxpx;
+    padding:0px;
+    box-sizing: border-box;
+
+     background-attachment: fixed; 
+    padding-top: 160px;
+    
+}
+nav {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  height:  100px;
+  transform: translate(-50%, 0);
+  width: 100%;
+  padding: 0 20px;
+  background-color: rgb(221, 221, 222);
+  border-radius: 10px;
+  height: 25%;
+  align-items: center;
+  z-index: 1000;
+}
+.homedis{ 
+    position: relative;
+    top: 21.5%;
+    background-image: url(asset/Screenshot\ \(39\)23.png);
+    background-repeat: no-repeat;
+     background-size: 100% auto;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    }
+    
+    input{
+        padding: 7px 38px 7px 10px;
+        border-radius: 8px;
+        width: 600px;
+        
+
+      }
+    
+    
+    nav > .left-logo{
+      width:40%;
+    }
+    img{
+      width:138px;
+      height:86px;
+    }
+    nav > .right-nav ul >li{
+      list-style: none;
+    }
+    nav > .right-nav ul >li>a{
+      text-decoration: none;
+      color:black;
+      font-size:16px;
+    }
+    nav > .right-nav {
+      width:60%;
+      padding-right:30px;
+      margin-left: 150px;
+    }
+    nav > .right-nav ul{
+       display: flex;
+       justify-content: space-between;
+       align-content: center;
+
+    }
+    
+
+    nav > .right-nav ul > li >.active{
+      color:blue;
+      position: relative;
+    }
+    nav > .right-nav ul > li >.active::before{
+      content: "";
+      width:100%;
+      height:2px;
+      position: absolute;
+      background-color: black;
+      left:0px;
+      bottom:0px;
+      background-color: blue;
+      position: fixed;
+      z-index: 100;
+    }
+  
+     .homedis h1{
+        font-size:50px;
+     }
+    .homedis .box  p {
+   font-size: 20px;
+   padding-top:80px ;
+  }
+     /* }
+     section{
+        position: absolute;
+        top:85%;
+        width:80%;
+        height:70%;
+        margin-left:20%;
+        margin-top:20px;
+        display: flex;
+        flex-direction: column;
+      } */
+      section > .title{
+        margin-bottom: 30px;
+        color:blue;
+    
+        
+      }
+      .cat .title > h1{
+        position: relative;
+        display: inline;
+        padding-top: 20px;
+        
+        
+      }
+     .cat .title > h1::after{
+        content: "";
+        width:200%;
+        height:3px;
+        background-color: blue;
+        position: absolute;
+        left:0%;
+        bottom: -15px;
+        border-radius: 2px;
+       
+      
+      }
+  
+      section  .categories{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+       padding: 50px;
+       /* width: 80%; */
+       /* margin-left: 20%; */
+       
+      }
+      section  .categories  .box{
+        width:180px;
+        aspect-ratio: 1/1;
+        text-align: center;
+        align-items: flex-end;
+        /* margin-top: 10px; */
+      }
+      section  .categories  .box  .icon >iconify-icon{
+        font-size:80px;
+        margin-bottom:20px;
+      }
+      /* h1{
+        color: #3795B3;
+        text-shadow: 1px white;
+         margin: 64px; 
+      
+      } */
+      .feeds-title > h1{
+        position: relative;
+        display: inline;
+        padding-top: 20px;
+        
+        
+      }
+      .feeds-title > h1::after{
+        content: "";
+        width:200%;
+        height:3px;
+        background-color: blue;
+         position:absolute ; 
+        left:0%;
+        bottom: -15px;
+        border-radius: 2px;
+      
+      }
+      .category{
+        position: relative;
+        top: -25%;
+    
+      }
+      /* .advertisement{
+        width: 20%;
+      } */
+      table{
+        width: 100%;
+      }
+      table .add{
+        width: 20%;
+        background-color:whitesmoke ;
+      }
+      table .cat{
+        width: 80%;
+      }
+      .advertisement p{
+        align-items: center;
+        text-align: center;
+        text-transform: capitalize;
+      }
+      .search{
+        padding-top: 150px;
+      }
+
+.feeds{
+  /* position: absolute;
+  top:150%;
+  width:80%;
+  height:70%;
+  margin-left:20%; */
+  /* margin-top:20px; */
+  display: flex;
+  flex-direction: column;
+}
+.feeds> .feeds-container{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 30px;
+   margin-top: 20px; 
+}
+
+.feeds > .feeds-container > .box{
+  border: 2px solid blue;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-right: 20px;
+  position: relative;
+  
+}
+.feeds > .feeds-container > .box >h2{
+  margin:10px;
+  margin-left:20px;
+  margin-bottom: 20px;
+  position: relative;
+  
+}
+.feeds > .feeds-container > .box::after{
+  content: "";
+  position: absolute;
+  width:80%;
+  height:2px;
+  background-color: blue;;
+  left:-5%;
+  bottom: 80%;
+}
+.feeds > .feeds-container > .box >.sub-section{
+  margin-left:20px;
+  margin-bottom: 10px;
+}
+
+.feeds > .feeds-container > .box >.sub-section> p {
+  display: inline;
+}
+.feeds > .feeds-container > .box > .descrption{
+  border:1px solid blue;
+  text-align: center;
+  padding-top:10px;
+  padding-bottom:10px;
+}
+.feeds > .feeds-container > .box > .descrption > a{
+  margin-left:20px;
+  margin-top:10px;
+}
+@media (min-width: 600px) {
+  .component {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .container {
+    width: calc(50% - 30px);
+    margin-top: 30px;
+  }
+} 
+@media (min-width: 900px) {
+  .container {
+    width: calc(33.33% - 40px);
+  }
+}
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+  </head>
+  <body>
+    <nav>
+      <div class="left_logo">
+        <img src="asset/logo.png" alt="" />
+      </div>
+      <div class="right-nav">
+        <ul>
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#">profile</a></li>
+          <li><a href="#">Signup</a></li>
+          <li><a href="#"> feedback</a></li>
+          
+        </ul>
+      </div>
+    </nav>
+
+    <section class="homedis">
+      <div class="box">
+        <h1>Connecting careers,Empowering Dreams!</h1>
+
+        <p>
+          Our platform offers a seamless and efficient way for individuals
+          <br />
+          to search and apply for their dream jobs while providing <br />
+          companies with access to a vast pool of talented professionals.
+        </p>
+
+        <div class="search">
+          <input
+            type="text"
+            name="search"
+            placeholder="Search for job"
+            title="Enter search keyword"
+          />
+        </div>
+      </div>
+    </section>
+    <section class="category">
+      <table>
+        <tr>
+          <td class="add">
+            <section class="advertisement">
+              <p>this section is open for advertisement</p>
+            </section>
+          </td>
+          <td class="cat">
+            <div class="title">
+              <h1>Categories</h1>
+            </div>
+            <div class="categories">
+              <div class="box">
+                <div class="icon">
+                  <iconify-icon icon="mdi:art"></iconify-icon>
+                </div>
+                <div class="sub-title">
+                  <p>Creative art and design</p>
+                </div>
+              </div>
+              <div class="box">
+                <div class="icon">
+                  <iconify-icon
+                    icon="healthicons:i-training-class"
+                  ></iconify-icon>
+                </div>
+                <div class="sub-title">
+                  <p>Teaching and Training</p>
+                </div>
+              </div>
+              <div class="box">
+                <div class="icon">
+                  <iconify-icon icon="icon-park:new-computer"></iconify-icon>
+                </div>
+                <div class="sub-title">
+                  <p>Information technology</p>
+                </div>
+              </div>
+              <div class="box">
+                <div class="icon">
+                  <iconify-icon
+                    icon="flat-color-icons:sales-performance"
+                  ></iconify-icon>
+                </div>
+                <div class="sub-title">
+                  <p>Finance and Accounting</p>
+                </div>
+              </div>
+              <div class="box">
+                <div class="icon">
+                  <iconify-icon
+                    icon="flat-color-icons:engineering"
+                  ></iconify-icon>
+                </div>
+                <div class="sub-title">
+                  <p>Engineering</p>
+                </div>
+              </div>
+              <div class="box">
+                <div class="icon">
+                  <iconify-icon icon="tabler:wave-saw-tool"></iconify-icon>
+                </div>
+                <div class="sub-title">
+                  <p>Health care</p>
+                </div>
+              </div>
+              <div class="box">
+                <div class="icon">
+                  <iconify-icon icon="carbon:sales-ops"></iconify-icon>
+                </div>
+                <div class="sub-title">
+                  <p>Sales and Marketing</p>
+                </div>
+              </div>
+              <div class="box">
+                <div class="icon">
+                  <iconify-icon icon="ep:more-filled"></iconify-icon>
+                </div>
+                <div class="sub-title">
+                  <p>Other</p>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </section>
+    <section class="feed">
+    <table>
+      <tr>
+        <td class="add">
+          <div class="advertisement">
+            <p>this section is open for advertisement</p>
+          </div>
+        </td>
+        <td class="addv">
+          <div class="feeds">
+            <div class="feeds-title">
+              <h1>Feeds</h1>
+            </div>
+            <div class="feeds-container">
+              <div class="box">
+                <h2>Data Analyst</h2>
+                <div class="sub-section">
+                  <iconify-icon icon="fa6-solid:handshake"></iconify-icon>
+
+                  <p>hirer:</p>
+                </div>
+                <div class="sub-section">
+                  <iconify-icon
+                    icon="fluent-emoji-flat:money-bag"
+                  ></iconify-icon>
+
+                  <p>salary:</p>
+                </div>
+                <div class="sub-section">
+                  <iconify-icon icon="clarity:clock-line"></iconify-icon>
+                  <p>experience:</p>
+                </div>
+                <div class="sub-section">
+                  <iconify-icon
+                    icon="simple-line-icons:calender"
+                  ></iconify-icon>
+                  <p>deadline day:</p>
+                </div>
+                <div class="sub-section">
+                  <iconify-icon icon="bx:category"></iconify-icon>
+                  <p>category:</p>
+                </div>
+                <div class="descrption">
+                  <a href="">
+                    <iconify-icon icon="gg:details-more"></iconify-icon>
+                  </a>
+                  <span>descrption</span>
+                </div>
+              </div>
+              <div class="box">
+                <h2>Civil Engineer</h2>
+                <div class="sub-section">
+                  <iconify-icon icon="fa6-solid:handshake"></iconify-icon>
+
+                  <p>hirer:</p>
+                </div>
+                <div class="sub-section">
+                  <iconify-icon
+                    icon="fluent-emoji-flat:money-bag"
+                  ></iconify-icon>
+
+                  <p>salary:</p>
+                </div>
+                <div class="sub-section">
+                  <iconify-icon icon="clarity:clock-line"></iconify-icon>
+                  <p>experience:</p>
+                </div>
+                <div class="sub-section">
+                  <iconify-icon
+                    icon="simple-line-icons:calender"
+                  ></iconify-icon>
+                  <p>deadline day:</p>
+                </div>
+                <div class="sub-section">
+                  <iconify-icon icon="bx:category"></iconify-icon>
+                  <p>category:</p>
+                </div>
+                <div class="descrption">
+                  <a href="">
+                    <iconify-icon icon="gg:details-more"></iconify-icon>
+                  </a>
+                  <span>descrption</span>
+                </div>
+              </div>
+              <div class="box">
+                <h2>Data Analyst</h2>
+                <div class="sub-section">
+                  <iconify-icon icon="fa6-solid:handshake"></iconify-icon>
+
+                  <p>hirer:</p>
+                </div>
+                <div class="sub-section">
+                  <iconify-icon
+                    icon="fluent-emoji-flat:money-bag"
+                  ></iconify-icon>
+
+                  <p>salary:</p>
+                </div>
+                <div class="sub-section">
+                  <iconify-icon icon="clarity:clock-line"></iconify-icon>
+                  <p>experience:</p>
+                </div>
+                <div class="sub-section">
+                  <iconify-icon
+                    icon="simple-line-icons:calender"
+                  ></iconify-icon>
+                  <p>deadline day:</p>
+                </div>
+                <div class="sub-section">
+                  <iconify-icon icon="bx:category"></iconify-icon>
+                  <p>category:</p>
+                </div>
+                <div class="descrption">
+                  <a href="">
+                    <iconify-icon icon="gg:details-more"></iconify-icon>
+                  </a>
+                  <span>descrption</span>
+                </div>
+              </div>
+              <div class="box">
+                <h2>Backend Developer</h2>
+                <div class="sub-section">
+                  <iconify-icon icon="fa6-solid:handshake"></iconify-icon>
+
+                  <p>hirer:</p>
+                </div>
+                <div class="sub-section">
+                  <iconify-icon
+                    icon="fluent-emoji-flat:money-bag"
+                  ></iconify-icon>
+
+                  <p>salary:</p>
+                </div>
+                <div class="sub-section">
+                  <iconify-icon icon="clarity:clock-line"></iconify-icon>
+                  <p>experience:</p>
+                </div>
+                <div class="sub-section">
+                  <iconify-icon
+                    icon="simple-line-icons:calender"
+                  ></iconify-icon>
+                  <p>deadline day:</p>
+                </div>
+                <div class="sub-section">
+                  <iconify-icon icon="bx:category"></iconify-icon>
+                  <p>category:</p>
+                </div>
+                <div class="descrption">
+                  <a href="">
+                    <iconify-icon icon="gg:details-more"></iconify-icon>
+                  </a>
+                  <span>descrption</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </section>
+  </body>
+</html>
