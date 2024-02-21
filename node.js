@@ -7,7 +7,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", function (req, res) {
-    let filepath = __dirname + "/index.html";
+    let filepath = __dirname + "/login.html";
     console.log(filepath);
     res.sendFile(filepath);
 });
@@ -21,7 +21,7 @@ app.get("/seeker", function (req, res) {
     console.log(filepath);
     res.sendFile(filepath);
 });
-app.listen(1257, function () {
+app.listen(1271, function () {
     console.log("Server listening on port 1252");
 });
 
@@ -39,9 +39,9 @@ createConnection.connect(function (err) {
         console.log("Connected to the database");
     }
 });
-app.post("/signup", function (req, res) {
-    console.log(req.body);
-})
+// app.post("/signup", function (req, res) {
+//     console.log(req.body);
+// })
 app.post("/", function (req, res) {
     console.log(req.body);
     let email = req.body.email;
