@@ -12,16 +12,23 @@ app.get("/", function (req, res) {
     res.sendFile(filepath);
 });
 app.get("/signup", function (req, res) {
-    let filepath = __dirname + "/signup/index.html";
+    let filepath = __dirname + "/seeker/signup/index.html";
     console.log(filepath);
     res.sendFile(filepath);
 });
-app.get("/seeker", function (req, res) {
+app.get("/home", function (req, res) {
     let filepath = __dirname + "/seeker/index.html";
     console.log(filepath);
     res.sendFile(filepath);
 });
-app.listen(1271, function () {
+app.get("/professionalprofile", function (req, res) {
+let filepath = __dirname + "/seeker/professionalprofile/index.html";
+console.log(filepath);
+res.sendFile(filepath);
+});
+
+
+app.listen(1276, function () {
     console.log("Server listening on port 1252");
 });
 
@@ -53,7 +60,7 @@ app.post("/", function (req, res) {
              }
              else if(result.length>0)
              {
-              res.redirect("/seeker");
+              res.redirect("/home");
              }
              else{
                res.redirect("/");
@@ -65,44 +72,47 @@ app.post("/signup", function (req, res) {
     let lastName = req.body.lastName;
     let email = req.body.email;
     let password = req.body.password;
-    let gender = req.body.gender;
-    let city = req.body.city;
-    let region = req.body.region;
-    let skill_message = req.body.skillmessage;
-    let cv_pdf_path = req.body.file;
-    let summary = req.body.summary;
+
 
     let signup_sql = "INSERT INTO users(firstname,lastname,email,password) VALUES('"+firstName+"','"+lastName+"','"+email+"','"+password+"')";
-    let prof_sql="INSERT INTO professionalProfile (gender, skill_message, summary, cv_pdf_path) VALUES ('"+gender+"','"+skill_message+"','"+summary+"','"+cv_pdf_path+"')";
-    let add_sql="INSERT INTO address (city, region) VALUES ('"+city+"','"+region+"')";
+    
     createConnection.query(signup_sql, [firstName, lastName, email, password], function (err, result) {
         if (err) {
             console.log(err);
         }
         else if(result.affectedRows>0)
         {
-         res.redirect("/");
+         res.redirect("/professionalprofile");
         }
         else{
-          res.redirect("/seeker");
+          res.redirect("/signup");
+          res.send("Something went wrong");
         }
     });
     
-    createConnection.query(prof_sql,[gender,skill_message,summary,cv_pdf_path],function(err,result){
-        if(err){
-            console.log(err);
-        }
-        else{
-            res.redirect("/seeker");
-        }
-    });
     
-    createConnection.query(add_sql,[city,region],function(err,result){
-        if(err){
-            console.log(err);
+})
+app.post("/professionalprofile", function (req, res) {
+    let gender = req.body.gender;
+    let skill_message = req.body.skill_message;
+    let summary = req.body.summary;
+    let cv_pdf_path = req.body.cv_pdf_path;
+    let city = req.body.city;
+    let region = req.body.region;
+    let prof_sql="INSERT INTO professionalProfile (gender, skill_message, summary, cv_pdf_path) VALUES ('"+gender+"','"+skill_message+"','"+summary+"','"+cv_pdf_path+"')";
+    let add_sql="INSERT INTO address (city, region) VALUES ('"+city+"','"+region+"')";
+
+    createConnection.query(prof_sql, [gender, skill_message, summary, cv_pdf_path], function(err, result) {
+        if (err) {
+          console.log(err);
+        } else {
+          createConnection.query(add_sql, [city, region], function(err, result) {
+            if (err) {
+              console.log(err);
+            } else {
+              res.redirect("/home");
+            }
+          });
         }
-        else{
-            res.redirect("/seeker");
-        }
-    });
+      });
 })
