@@ -13,15 +13,17 @@ const professionalProfile=require("./routes/pr_profile");
 const homeroute=require("./routes/home");
 const dbconfig = require("./config/dbconfig");
 
+app.use("/",loginroute);
 app.use("/signup",signuproute);
 app.use("/pr_profile",professionalProfile);
 app.use("/home",homeroute);
 
 
-const PORT=process.env.PORT || 3091 ;
+const PORT=process.env.PORT || 3033;
 
 app.listen(PORT, function () {
-    console.log("Server listening on port ${PORT}");
+    console.log(`Server listening on port ${PORT}`);
 });
+
 
 const createConnection = dbconfig;
