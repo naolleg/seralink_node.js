@@ -3,15 +3,19 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const dbConfig = {
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME,
-};
+const host = process.env.DB_HOST;
+const port = process.env.DB_PORT;
+const password = process.env.DB_PASS;
+const user = process.env.DB_USER;
+const database = process.env.DB_NAME;
 
-const connection = mysql.createConnection(dbConfig);
+const connection = mysql.createConnection({
+  host,
+  port,
+  user,
+  password,
+  database
+});
 
 connection.connect((err) => {
   if (err) {
@@ -21,19 +25,18 @@ connection.connect((err) => {
   }
 });
 
-const query = (sql, params) => {
+function query(sql, params) {
   return new Promise((resolve, reject) => {
     connection.query(sql, params, (err, rows, fields) => {
       if (err) {
         console.error('Error executing SQL query:', err);
         reject(err);
-        console.log(err);
       } else {
         resolve(rows);
-        return rows;
       }
     });
   });
-};
+}
 
-module.exports = query;
+module.exports = 
+  query
