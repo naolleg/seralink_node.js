@@ -22,10 +22,10 @@ const UserService = {
         }
         
     },
-    getUserByEmail: async (email)=>{
+    getUserByEmail: async (data)=>{
 
         try {
-            const data  = await query(userQuery.getUserByEmailQuery,email);
+            const data  = await query(userQuery.getUserByEmailQuery,data.email);
             return data;
         } catch (error) {
            // console.log("erro services");
@@ -36,7 +36,7 @@ const UserService = {
     insertUserTable: async (data)=>{
 
         try {
-            const result  = await query(userQuery.insertUserTableQuery,[data.email,data.password,data.role,data.image,data.firstnamet,data.lastname]);
+            const result  = await query(userQuery.insertUserTableQuery,[data.email,data.password,data.role,data.image,data.firstname,data.lastname]);
             return result;
         } catch (error) {
            // console.log("erro services");

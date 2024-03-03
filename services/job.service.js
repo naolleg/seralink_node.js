@@ -10,6 +10,16 @@ const jobservice = {
         }
 
     },
+    getUserRoleAndFirstName:async (data) => {
+        try {
+          const rows = await query(loginQuery.getUserRoleAndFirstName, [data.userId]);
+          console.log(rows);
+          return rows;
+        } catch (e) {
+          console.log(e);
+          return null;
+        }
+      },
     createpost: async (data)=>{
 
         try {

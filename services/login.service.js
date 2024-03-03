@@ -4,7 +4,16 @@ const loginQuery = require("../querys/login.query");
 const loginService = {
   getUserByEmail: async (data) => {
     try {
-      const rows = await query(loginQuery.getUserByEmail, [data.userEmail]);
+      const rows = await query(loginQuery.getUserByEmail, [data.email]);
+      return rows;
+    } catch (error) {
+      throw error;
+      return null;
+    }
+  },getUserRoleAndFirstName:
+  async (data) => {
+    try {
+      const rows = await query(loginQuery.getUserRoleAndFirstName, [data.userId]);
       return rows;
     } catch (error) {
       throw error;

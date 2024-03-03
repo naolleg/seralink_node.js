@@ -1,13 +1,13 @@
-const loginService = require("../services/login.service.js");
-const userService = require("../services/user.service.js");
+const loginService = require("../services/login.service");
+const userService = require("../services/user.service");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
 const loginController = {
   loginUser: async (req, res) => {
-    console.log(req.body);
+    console.log("dsfafsgdfsaedfsdc");
     try {
-      const { email, password } = req.body;
+      const { email,password } = req.body;
 
       // Check if all fields are given
       if (!email || !password) {
@@ -18,7 +18,7 @@ const loginController = {
       }
 
       // Check if email is used before
-      const isEmailExist = await loginService.getUserByEmail(email);
+      const isEmailExist = await userService.getUserByEmail(req.body);
 
       // If there is no account related to this email
       if (!isEmailExist.length) {
@@ -43,22 +43,22 @@ const loginController = {
           message: "Incorrect password",
         });
       } else {
-        // Extracting first name and user role
-        // const userInfo = await loginService.getUserRoleAndFirstName(req.body);
-        // console.log(userInfo);
-        // const firstName = userInfo[0].firstName;
-        // const userRole = userInfo[0].companyRoleName;
-        // const userId = req.body.userId;
+        //Extracting first name and user role
+        const userInfo = await loginService.getUserRoleAndFirstName(req.body);
+        console.log(userInfo);
+        const firstname = userInfo[0].firstName;
+        const role = userInfo[0].role;
+        const userId = req.body.userId;
 
-        // Prepare token
-        // const token = jwt.sign(
-        //   { userId, userRole, firstName },
-        //   process.env.JWT_SECRET,
-        //   {
-        //     // expiresIn: '1h',
-        //   }
-        // );
-        // console.log(token);
+        //Prepare token
+        const token = jwt.sign(
+          { userId, role, firstname },
+          process.env.JWT_SECRET,
+          {
+            // expiresIn: '1h',
+          }
+        );
+        console.log(token);
 
         return res.status(200).json({
           // token,
