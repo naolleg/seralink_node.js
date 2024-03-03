@@ -25,8 +25,8 @@ const UserService = {
     getUserByEmail: async (data)=>{
 
         try {
-            const data  = await query(userQuery.getUserByEmailQuery,data.email);
-            return data;
+            const rows  = await query(userQuery.getUserByEmail,[data.email]);
+            return rows;
         } catch (error) {
            // console.log("erro services");
             throw error
