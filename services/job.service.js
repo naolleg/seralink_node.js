@@ -30,6 +30,17 @@ const jobservice = {
             throw error
         }
         
-    },}
+    },
+    insertAddress: async (data)=>{
+        try {
+            const result  = await query(jobQuery.insertAddressQuery,[data.region,data.city]);
+            return result;
+        } catch (error) {
+           // console.log("erro services");
+            throw error
+        }
+        
+    }
+}
 
     module.exports=jobservice

@@ -9,18 +9,42 @@ try {
         experience,
         qualification,
         quantity,
-        addressId,
+        region,
+        city,
         orgProfileId,
         createdDate,
         deadline,
         hirerName }=req.body;
-if(!title||!category||!salary||!experience||!qualification||!quantity||!addressId||!orgProfileId||!createdDate||!deadline||!hirerName){
+
+        
+
+if(!title||!category||!salary||!experience||!qualification||!quantity||!city||!region||!orgProfileId||!createdDate||!deadline||!hirerName){
     return res.status(400).json({
         success: false,
         message: "All fields are required"
     })
 }
-const isjobposted = await jobService.createpost(req.body)
+const addressData = { region, city };
+        const addressId = await jobService.insertAddress(addressData);
+        if(!addressId){
+            return res.status(400).json({
+              success: false,
+              message: "address not posted"
+            })}
+const jobData = {
+    title,
+    category,
+    salary,
+    experience,
+    qualification,
+    quantity,
+    addressId,
+    orgProfileId,
+    createdDate,
+    deadline,
+    hirerName,
+  };
+const isjobposted = await jobService.createpost(jobData);
 console.log(isjobposted.insertId);
 if(isjobposted){
   return res.status(200).json({
