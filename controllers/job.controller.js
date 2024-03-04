@@ -18,19 +18,20 @@ try {
 
         
 
-if(!title||!category||!salary||!experience||!qualification||!quantity||!city||!region||!orgProfileId||!createdDate||!deadline||!hirerName){
+if(!title||!category||!salary||!experience||!qualification||!quantity||!city||!region||!orgProfileId||!deadline||!hirerName){
     return res.status(400).json({
         success: false,
         message: "All fields are required"
     })
 }
 const addressData = { region, city };
-        const addressId = await jobService.insertAddress(addressData);
-        if(!addressId){
+        const isaddressposted = await jobService.insertAddress(addressData);
+        if(!isaddressposted){
             return res.status(400).json({
               success: false,
               message: "address not posted"
             })}
+            const addressId = isaddressposted.insertId;
 const jobData = {
     title,
     category,

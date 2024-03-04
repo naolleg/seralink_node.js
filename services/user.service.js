@@ -10,7 +10,16 @@ const UserService = {
             throw error
         }
 
-    },
+    },getRoleUsingUserId:
+    async (data) => {
+        try {
+          const rows = await query(userQuery.getRoleUsingUserId, [data.userId]);
+          return rows;
+        } catch (error) {
+          throw error;
+          return null;
+        }
+      },
     getSinglelusers: async (id)=>{
 
         try {
@@ -52,6 +61,14 @@ const UserService = {
     },
     updateSinglelusers: (data)=>{
         
+    }, getProfile: async (data) => {
+        try {
+            const rows = await query(userQuery.getProfile, [data.userId]);
+            return rows;
+        } catch (error) {
+            throw error;
+            return null;
+        }
     }
 
 

@@ -13,10 +13,6 @@ const professionalProfile=require("./routes/pr_profile");
 const homeroute=require("./routes/home");
 const dbconfig = require("./config/dbconfig");
 
-app.use("/",loginroute);
-app.use("/signup",signuproute);
-app.use("/pr_profile",professionalProfile);
-app.use("/home",homeroute);
 
 
 const PORT=process.env.PORT || 3033;
