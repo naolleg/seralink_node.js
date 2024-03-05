@@ -27,7 +27,6 @@ const loginController = {
           message: "No account exists with this email",
         });
       }
-
       // If the account exists, check for password
       req.body.userId = isEmailExist[0].userId;
       const isUserPasswordExist = await loginService.getUserPasswordByUserId(

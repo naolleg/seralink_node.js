@@ -30,7 +30,7 @@ const UserController = {
             message: "this email is registered before"
           })
         }
-        //prepare salt 
+        //add constant for the salt
         const saltRounds = 10
         const salt = bcrypt.genSaltSync(saltRounds);
         req.body.password = bcrypt.hashSync(password,salt);

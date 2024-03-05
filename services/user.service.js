@@ -1,5 +1,6 @@
 const query = require('../config/db');
-const userQuery = require("../querys/user.query")
+const userQuery = require("../querys/user.query");
+
 const UserService = {
     getAllusers: async ()=>{
         try {
@@ -61,17 +62,10 @@ const UserService = {
     },
     updateSinglelusers: (data)=>{
         
-    }, getProfile: async (data) => {
-        try {
-            const rows = await query(userQuery.getProfile, [data.userId]);
-            return rows;
-        } catch (error) {
-            throw error;
-            return null;
-        }
-    }
-
-
-}
-
-module.exports = UserService;
+    },
+    
+      
+    };
+    
+    module.exports = UserService;
+    
