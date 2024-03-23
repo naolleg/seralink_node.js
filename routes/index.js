@@ -1,7 +1,7 @@
 const express = require('express');
 
 const userRoute = require('./user.route')
-const jobRoute = require('./job.route')
+const jobRoute = require('./job.`route')
 const loginRoutes =require("./login.route");
 const profileRoute = require("./profile.route");
 const appRoute = express.Router();
