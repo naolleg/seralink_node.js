@@ -5,7 +5,7 @@ const UserController = require('../controllers/user.controller')
 
 //request 
 userRoute.get('/admin/users',UserController.getUsers )
-// userRoute.get('/admin/users/:id',UserController.getsingleUsers)ssss
+userRoute.get('/admin/users/:id',UserController.getsingleUsers)
 userRoute.post('/signup',upload.single("image"),UserController.createUser)
 // userRoute.post('/admin/addprovider',UserController.createprovider)
 // userRoute.delete('/admin/users/:id',UserController.deleteUser)
