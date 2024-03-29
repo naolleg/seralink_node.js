@@ -4,6 +4,7 @@ const express = require('express');
 const profileRoute = express.Router();
 
 profileRoute.get('/profile',auth,profileController.getProfile);
+profileRoute.put("/profile/updateProfile",auth,profileController.updateProfile);
 
 
 module.exports = profileRoute
